@@ -71,3 +71,39 @@ html, body { margin: 0; padding: 0; background: #141518; color: #e8e6df; font-fa
 .renderbtns button { background: #2a2a2a; color: #eee; border: 1px solid #444; border-radius: 6px; padding: 6px 8px; cursor: pointer; font-size: 12.5px; }
 .renderbtns button:disabled { opacity: 0.4; cursor: default; }
 .renderlog { background: #141414; border: 1px solid #333; border-radius: 6px; padding: 8px; font-size: 11px; line-height: 1.5; max-height: 220px; overflow: auto; white-space: pre-wrap; word-break: break-all; color: #b9c9a3; }
+
+/* ---- Tahap 4: Versi 2 ---- */
+.addbeat { display: flex; gap: 6px; }
+.addbeat select { flex: 1; background: #222; color: #eee; border: 1px solid #444; border-radius: 5px; padding: 5px 7px; font-size: 13px; }
+.addbeat button, .beat-actions button, .fld > button { background: #2a2a2a; color: #eee; border: 1px solid #444; border-radius: 6px; padding: 5px 10px; cursor: pointer; font-size: 12.5px; }
+.beat-actions { display: flex; gap: 6px; margin-top: 12px; }
+.beat-actions .danger { border-color: #7a3030; color: #f0b0b0; }
+.assetgrid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 5px; max-height: 190px; overflow: auto; }
+.asset-thumb { position: relative; padding: 0; border: 2px solid #444; border-radius: 5px; background: #1a1a1a; cursor: pointer; overflow: hidden; }
+.asset-thumb img { width: 100%; height: 38px; object-fit: cover; display: block; }
+.asset-thumb span { position: absolute; bottom: 0; left: 0; right: 0; font-size: 10px; background: rgba(0,0,0,0.65); color: #eee; padding: 1px 0; }
+.asset-thumb.sel { border-color: #ffd75e; }
+.asset-none { border: 2px dashed #444; border-radius: 5px; background: transparent; color: #999; cursor: pointer; min-height: 42px; }
+.asset-none.sel { border-color: #ffd75e; color: #ffd75e; }
+.camrow { display: flex; align-items: center; gap: 6px; margin-bottom: 5px; }
+.camrow label { display: flex; align-items: center; gap: 3px; font-size: 11px; color: #999; }
+.camrow input { width: 56px; background: #222; color: #eee; border: 1px solid #444; border-radius: 4px; padding: 3px 5px; font-size: 12px; }
+.camrow button { background: #2a2a2a; color: #ccc; border: 1px solid #444; border-radius: 4px; cursor: pointer; }
+.helpbox { margin-top: 18px; border-top: 1px solid #333; padding-top: 12px; }
+.helpbox ul { margin: 0; padding-left: 16px; font-size: 12px; line-height: 1.9; color: #bbb; }
+.addbox { margin-top: 4px; }
+
+/* Tema terang */
+.app[data-theme="light"] { background: #f2efe9; color: #222; }
+.app[data-theme="light"] .topbar, .app[data-theme="light"] .panel { background: #faf8f4; }
+.app[data-theme="light"] .topbar { border-color: #ddd; }
+.app[data-theme="light"] .panel { border-color: #ddd; }
+.app[data-theme="light"] .timeline { background: #e9e5dc; border-color: #ccc; }
+.app[data-theme="light"] .tl-label { background: #e9e5dc; color: #555; }
+.app[data-theme="light"] .tl-row { border-color: #d5d0c4; }
+.app[data-theme="light"] .dim { color: #777; }
+.app[data-theme="light"] select, .app[data-theme="light"] .panel .fld input[type="text"], .app[data-theme="light"] .panel .fld input[type="number"], .app[data-theme="light"] .addbeat select, .app[data-theme="light"] .camrow input { background: #fff; color: #222; border-color: #bbb; }
+.app[data-theme="light"] button, .app[data-theme="light"] .topbar button, .app[data-theme="light"] .renderbtns button, .app[data-theme="light"] .addbeat button, .app[data-theme="light"] .beat-actions button { background: #fff; color: #222; border-color: #bbb; }
+.app[data-theme="light"] .renderlog { background: #efece5; color: #44512f; border-color: #ccc; }
+.app[data-theme="light"] .renderbox, .app[data-theme="light"] .helpbox { border-color: #ddd; }
+.app[data-theme="light"] .savestate { color: #2e7d32; }

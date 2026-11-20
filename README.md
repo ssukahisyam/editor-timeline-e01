@@ -24,4 +24,4 @@ File biner tidak disimpan di repo ini: `public/vo.mp3`, gambar `01.png`–`36.pn
 - Tahap 1 — Kerangka editor + timeline baca-saja (SELESAI 20 Nov 2026)
 - Tahap 2 — Mengedit: geser elemen/batas scene, panel properti, drag di preview, autosave + undo/redo (SELESAI 20 Nov 2026)
 - Tahap 3 — Panel render dari editor: ±5 detik di playhead / scene terpilih / cek 60 detik / film penuh, progres SSE (SELESAI 20 Nov 2026)
-- Tahap 4 — Versi 2
+- Tahap 4 — Versi 2: tambah/duplikat/hapus elemen, pemilih aset visual, editor kamera, tema terang/gelap, pintasan keyboard (SELESAI 20 Nov 2026)

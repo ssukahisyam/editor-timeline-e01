@@ -3,7 +3,8 @@ import {Player, type PlayerRef} from '@remotion/player';
 import {Video} from '../../src/Video';
 import type {Beat, Data, SceneT} from '../../src/types';
 import {Timeline, fmt, type DragPhase, type Selection, type Word} from './timeline';
-import {BeatPanel, ScenePanel, type EditPhase} from './panel';
+import {AddBeatButtons, BeatPanel, ScenePanel, type AssetItem, type EditPhase} from './panel';
+import {beatFields, BEAT_SCHEMA, type BeatKind} from '../../src/schema/beats';
 
 const FPS = 30;
 
@@ -50,6 +51,8 @@ export const App: React.FC = () => {
   const [px, setPx] = React.useState(5);
   const [, setHistTick] = React.useState(0);
 
+  const [assets, setAssets] = React.useState<{img: AssetItem[]; tex: AssetItem[]}>({img: [], tex: []});
+  const [theme, setTheme] = React.useState<string>(() => localStorage.getItem('editor-theme') || 'dark');
   const [renderLog, setRenderLog] = React.useState<string[]>([]);
   const [renderRunning, setRenderRunning] = React.useState(false);
   const [renderLabel, setRenderLabel] = React.useState('');
@@ -70,6 +73,12 @@ export const App: React.FC = () => {
       const res = await fetch(`/api/episode/${id}/data`);
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
       const body = (await res.json()) as {episode: EpisodeManifest; data: Data; words: Word[]};
+      try {
+        const ares = await fetch(`/api/episode/${id}/assets`);
+        if (ares.ok) setAssets((await ares.json()) as {img: AssetItem[]; tex: AssetItem[]});
+      } catch {
+        setAssets({img: [], tex: []});
+      }
       skipSaveRef.current = true;
       setEpisode(body.episode);
       setWords(body.words);
@@ -157,38 +166,28 @@ export const App: React.FC = () => {
   }, []);
 
   React.useEffect(() => {
-    const onKey = (e: KeyboardEvent) => {
-      const target = e.target as HTMLElement | null;
-      const inField = target instanceof HTMLInputElement || target instanceof HTMLTextAreaElement || target instanceof HTMLSelectElement;
-      if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'z' && !inField) {
-        e.preventDefault();
-        if (e.shiftKey) redo();
-        else undo();
-        return;
-      }
-      if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'y' && !inField) {
-        e.preventDefault();
-        redo();
-        return;
-      }
-      if (e.code === 'Space' && !inField) {
-        e.preventDefault();
-        playerRef.current?.toggle();
-      }
-    };
-    window.addEventListener('keydown', onKey);
-    return () => window.removeEventListener('keydown', onKey);
-  }, [undo, redo]);
+    localStorage.setItem('editor-theme', theme);
+  }, [theme]);
 
   // ---------- perubahan data ----------
   const mutate = React.useCallback((fn: (d: Data) => void) => {
-    setData((cur) => {
-      if (!cur) return cur;
-      const next = clone(cur);
-      fn(next);
-      return next;
-    });
+    const cur = dataRef.current;
+    if (!cur) return;
+    const next = clone(cur);
+    fn(next);
+    dataRef.current = next;
+    setData(next);
   }, []);
+
+  /** Satu aksi utuh (tambah/duplikat/hapus/dll): tercatat sebagai satu langkah undo. */
+  const editOnce = React.useCallback(
+    (fn: (d: Data) => void) => {
+      beginEdit();
+      mutate(fn);
+      commitEdit();
+    },
+    [beginEdit, mutate, commitEdit],
+  );
 
   const findBeat = (d: Data, beatId: string) => {
     for (const s of d.scenes) {
@@ -247,6 +246,137 @@ export const App: React.FC = () => {
     },
     [beginEdit, commitEdit, mutate],
   );
+
+  // ---------- tambah / duplikat / hapus elemen (Tahap 4) ----------
+  const nextBeatId = (scene: SceneT): string => {
+    let max = 0;
+    for (const b of scene.beats) {
+      const m = b.id.match(/-b(\d+)$/);
+      if (m) max = Math.max(max, Number(m[1]));
+    }
+    return `s${String(scene.n).padStart(2, '0')}-b${String(max + 1).padStart(3, '0')}`;
+  };
+
+  const addBeat = React.useCallback(
+    (kind: BeatKind, sceneN: number, atTime: number) => {
+      let newId = '';
+      editOnce((d) => {
+        const scene = d.scenes.find((s) => s.n === sceneN);
+        if (!scene) return;
+        newId = nextBeatId(scene);
+        const numDefaults: Record<string, number> = {x: 50, y: 50, x2: 72, y2: 50, size: 64, w: 340, rot: 0, hold: 1.2, gap: 0.45, seed: 1, dx: 0, dy: -46, pts: 7};
+        const beat: Record<string, unknown> = {k: kind, id: newId};
+        for (const f of beatFields(kind)) {
+          if (f.key === 't') beat.t = Math.round(Math.min(scene.end - 0.2, Math.max(scene.start, atTime)) * 100) / 100;
+          else if (f.type === 'number') beat[f.key] = numDefaults[f.key] ?? 0;
+          else if (f.type === 'color') beat[f.key] = 'red';
+          else if (f.type === 'boolean') beat[f.key] = false;
+          else beat[f.key] = f.key === 'text' ? 'TEKS BARU' : f.key === 'slot' ? 'main' : '';
+        }
+        scene.beats.push(beat as unknown as Beat);
+        scene.beats.sort((a, b) => a.t - b.t);
+      });
+      if (newId) setSelection({type: 'beat', beatId: newId});
+    },
+    [editOnce],
+  );
+
+  const duplicateBeat = React.useCallback(
+    (beatId: string) => {
+      let newId = '';
+      editOnce((d) => {
+        const f = findBeat(d, beatId);
+        if (!f) return;
+        newId = nextBeatId(f.scene);
+        const copy = JSON.parse(JSON.stringify(f.beat)) as Beat;
+        copy.id = newId;
+        copy.t = Math.round(Math.min(f.scene.end - 0.1, copy.t + 0.5) * 100) / 100;
+        f.scene.beats.push(copy);
+        f.scene.beats.sort((a, b) => a.t - b.t);
+      });
+      if (newId) setSelection({type: 'beat', beatId: newId});
+    },
+    [editOnce],
+  );
+
+  const deleteBeat = React.useCallback(
+    (beatId: string) => {
+      let sceneN = 0;
+      editOnce((d) => {
+        const f = findBeat(d, beatId);
+        if (!f) return;
+        sceneN = f.scene.n;
+        f.scene.beats = f.scene.beats.filter((b) => b.id !== beatId);
+      });
+      if (sceneN) setSelection({type: 'scene', sceneN});
+    },
+    [editOnce],
+  );
+
+  const selectionRef = React.useRef<Selection>(null);
+  selectionRef.current = selection;
+
+  React.useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      const target = e.target as HTMLElement | null;
+      const inField = target instanceof HTMLInputElement || target instanceof HTMLTextAreaElement || target instanceof HTMLSelectElement;
+      if (inField) return;
+      const mod = e.ctrlKey || e.metaKey;
+      if (mod && e.key.toLowerCase() === 'z') {
+        e.preventDefault();
+        if (e.shiftKey) redo();
+        else undo();
+        return;
+      }
+      if (mod && e.key.toLowerCase() === 'y') {
+        e.preventDefault();
+        redo();
+        return;
+      }
+      if (mod && e.key.toLowerCase() === 'd') {
+        e.preventDefault();
+        const sel = selectionRef.current;
+        if (sel?.type === 'beat') duplicateBeat(sel.beatId);
+        return;
+      }
+      if (e.code === 'Space') {
+        e.preventDefault();
+        playerRef.current?.toggle();
+        return;
+      }
+      if (e.key === 'Delete' || e.key === 'Backspace') {
+        const sel = selectionRef.current;
+        if (sel?.type === 'beat') {
+          e.preventDefault();
+          deleteBeat(sel.beatId);
+        }
+        return;
+      }
+      if (e.key === 'ArrowLeft' || e.key === 'ArrowRight') {
+        e.preventDefault();
+        const p = playerRef.current;
+        if (!p) return;
+        const delta = (e.key === 'ArrowRight' ? 1 : -1) * (e.shiftKey ? FPS : 1);
+        p.seekTo(Math.max(0, p.getCurrentFrame() + delta));
+        return;
+      }
+      if (e.key === 'Home') {
+        e.preventDefault();
+        playerRef.current?.seekTo(0);
+        return;
+      }
+      if (e.key === '+' || e.key === '=') {
+        setPx((v) => Math.min(24, v + 1));
+        return;
+      }
+      if (e.key === '-') {
+        setPx((v) => Math.max(2, v - 1));
+      }
+    };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [undo, redo, duplicateBeat, deleteBeat]);
+
 
   // ---------- putar ----------
   const currentTime = frame / FPS;
@@ -377,7 +507,7 @@ export const App: React.FC = () => {
   };
 
   return (
-    <div className="app">
+    <div className="app" data-theme={theme}>
       <header className="topbar">
         <div className="brand">Editor Timeline Sirah</div>
         <label>
@@ -412,6 +542,9 @@ export const App: React.FC = () => {
         <label className="chk">
           <input type="checkbox" checked={dragMode} onChange={(e) => setDragMode(e.target.checked)} /> Drag posisi
         </label>
+        <button onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')} title="Ganti tema editor">
+          {theme === 'dark' ? '☀ Terang' : '🌙 Gelap'}
+        </button>
         <label>
           Zoom <input type="range" min={2} max={24} step={1} value={px} onChange={(e) => setPx(Number(e.target.value))} />
         </label>
@@ -480,8 +613,27 @@ export const App: React.FC = () => {
               <p className="dim">Belum ada yang dipilih. Klik scene atau elemen di timeline{dragMode ? ' atau di preview' : ''}.</p>
             </div>
           )}
-          {selection?.type === 'scene' && selectedScene && <ScenePanel scene={selectedScene} onField={onSceneField} />}
-          {selection?.type === 'beat' && selectedBeat && selectedScene && <BeatPanel scene={selectedScene} beat={selectedBeat} onField={onBeatField} />}
+          {selection?.type === 'scene' && selectedScene && (
+            <ScenePanel scene={selectedScene} assets={assets} onField={onSceneField} onAddBeat={(kind) => addBeat(kind, selectedScene.n, currentTime)} />
+          )}
+          {selection?.type === 'beat' && selectedBeat && selectedScene && (
+            <BeatPanel
+              scene={selectedScene}
+              beat={selectedBeat}
+              onField={onBeatField}
+              onDuplicate={() => duplicateBeat(selectedBeat.id)}
+              onDelete={() => deleteBeat(selectedBeat.id)}
+            />
+          )}
+          {!selection && currentScene && (
+            <div className="addbox">
+              <h2>Tambah elemen</h2>
+              <p className="dim">
+                Scene aktif: {currentScene.n}. {currentScene.title} — elemen baru masuk pada posisi playhead ({fmt(currentTime)}).
+              </p>
+              <AddBeatButtons onAdd={(kind) => addBeat(kind, currentScene.n, currentTime)} />
+            </div>
+          )}
           <p className="dim tahap">Tahap 2: mengedit aktif — perubahan tersimpan otomatis (cadangan 20 versi terakhir di folder backups/).</p>
           <div className="renderbox">
             <h2>Render</h2>
@@ -501,6 +653,19 @@ export const App: React.FC = () => {
             </div>
             <div className="dim">{renderRunning ? `Sedang merender: ${renderLabel}…` : renderLabel ? `Terakhir: ${renderLabel}` : 'Hasil masuk ke folder hasil/'}</div>
             {renderLog.length > 0 && <pre className="renderlog">{renderLog.slice(-30).join('\n')}</pre>}
+          </div>
+          <div className="helpbox">
+            <h2>Pintasan keyboard</h2>
+            <ul>
+              <li>Spasi — putar / jeda</li>
+              <li>← / → — geser 1 frame (Shift: 1 detik)</li>
+              <li>Home — ke awal film</li>
+              <li>Ctrl+Z / Ctrl+Shift+Z — undo / redo</li>
+              <li>Ctrl+D — duplikat elemen terpilih</li>
+              <li>Delete — hapus elemen terpilih</li>
+              <li>+ / − — zoom timeline</li>
+              <li>Alt saat menyeret — matikan tempel ke kata</li>
+            </ul>
           </div>
         </aside>
       </div>

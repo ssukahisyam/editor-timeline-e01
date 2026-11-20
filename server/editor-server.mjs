@@ -186,6 +186,22 @@ export function editorServerPlugin(root) {
             if (!loaded) return json(res, 404, {error: `episode ${m[1]} tidak ditemukan`});
             return json(res, 200, loaded);
           }
+          const a = req.url.match(/^\/api\/episode\/([\w-]+)\/assets$/);
+          if (req.method === 'GET' && a) {
+            const manifest = listEpisodes(root).find((e) => e.id === a[1]);
+            if (!manifest) return json(res, 404, {error: `episode ${a[1]} tidak ditemukan`});
+            const assetsPath = path.join(root, 'src', 'data', 'assets.json');
+            let assets = {img: [], tex: []};
+            if (fs.existsSync(assetsPath)) {
+              const raw = JSON.parse(fs.readFileSync(assetsPath, 'utf8'));
+              const toList = (obj) =>
+                Object.entries(obj || {})
+                  .map(([id, src]) => ({id, src: `/${src}`}))
+                  .sort((x, y) => x.id.localeCompare(y.id, undefined, {numeric: true}));
+              assets = {img: toList(raw.img), tex: toList(raw.tex)};
+            }
+            return json(res, 200, assets);
+          }
           const s = req.url.match(/^\/api\/episode\/([\w-]+)\/save$/);
           if (req.method === 'POST' && s) {
             const body = await readBody(req);
