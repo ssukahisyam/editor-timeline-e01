@@ -6,7 +6,8 @@
     "assets": "node scripts/scan-assets.mjs",
     "studio": "npm run assets && remotion studio src/index.ts",
     "render": "npm run assets && remotion render src/index.ts E01 out/E01.mp4 --codec=h264 --crf=18",
-    "render4k": "npm run assets && remotion render src/index.ts E01 out/E01_4k.mp4 --codec=h264 --crf=18 --scale=2"
+    "render4k": "npm run assets && remotion render src/index.ts E01 out/E01_4k.mp4 --codec=h264 --crf=18 --scale=2",
+    "editor": "vite --config editor/vite.config.ts"
   },
   "dependencies": {
     "@fontsource/anton": "^5.3.0",
@@ -20,5 +21,9 @@
     "react-dom": "^18.3.1",
     "remotion": "^4.0.545",
     "typescript": "^7.0.2"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.7.0",
+    "vite": "^6.4.6"
   }
 }

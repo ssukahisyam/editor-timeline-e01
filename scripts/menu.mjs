@@ -3,6 +3,7 @@
 //        node scripts/menu.mjs cek        (60 detik pertama, 540p)
 //        node scripts/menu.mjs penuh      (1080p)    | 4k (3840x2160)
 //        node scripts/menu.mjs rentang 30 90   (detik 30–90, 1080p)
+//        node scripts/menu.mjs editor          (editor timeline di localhost:5173)
 import fs from 'node:fs';
 import path from 'node:path';
 import os from 'node:os';
@@ -70,6 +71,11 @@ const render = (nama, {scale = 1, crf = 22, from = 0, to = null} = {}) => {
 const sec = (s) => Math.max(0, Math.round(Number(s) * FPS));
 
 const jalankan = (mode, x, y) => {
+  if (mode === 'editor') {
+    console.log('\n→ Menjalankan editor timeline di http://localhost:5173 (Ctrl+C untuk berhenti)\n');
+    if (!run('npm run editor')) die('Editor gagal dijalankan.');
+    return;
+  }
   if (mode === 'cek') return render('E01_cek_540p.mp4', {scale: 0.5, crf: 28, from: 0, to: 60 * FPS - 1});
   if (mode === 'penuh') return render('E01_1080p.mp4');
   if (mode === '4k') return render('E01_4K.mp4', {scale: 2});
@@ -88,10 +94,12 @@ else {
   console.log('  1) Cek cepat   — 60 detik pertama, 540p');
   console.log('  2) Video penuh — 1080p');
   console.log('  3) Video penuh — 4K (3840×2160, jauh lebih lama)');
-  console.log('  4) Potongan tertentu — pilih detik awal & akhir, 1080p\n');
+  console.log('  4) Potongan tertentu — pilih detik awal & akhir, 1080p');
+  console.log('  5) Editor timeline — buka editor di browser (localhost:5173)\n');
   const rl = readline.createInterface({input: process.stdin, output: process.stdout});
-  const pil = (await rl.question('Pilih 1-4: ')).trim();
-  if (pil === '1') jalankan('cek');
+  const pil = (await rl.question('Pilih 1-5: ')).trim();
+  if (pil === '5') jalankan('editor');
+  else if (pil === '1') jalankan('cek');
   else if (pil === '2') jalankan('penuh');
   else if (pil === '3') jalankan('4k');
   else if (pil === '4') {

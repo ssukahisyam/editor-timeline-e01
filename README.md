@@ -20,8 +20,8 @@ File biner tidak disimpan di repo ini: `public/vo.mp3`, gambar `01.png`–`36.pn
 
 ## Tahapan pembangunan editor
 
-- Tahap 0 — Persiapan: `Video` menerima `scenes` lewat props, skema elemen bersama, `id` tetap per elemen, `@remotion/player`
-- Tahap 1 — Kerangka editor + timeline baca-saja
+- Tahap 0 — Persiapan (SELESAI 20 Nov 2026): `Video` menerima `scenes` lewat props, skema elemen bersama, `id` tetap per elemen, `@remotion/player`
+- Tahap 1 — Kerangka editor + timeline baca-saja (SELESAI 20 Nov 2026)
 - Tahap 2 — Mengedit: geser elemen/batas scene, panel properti, drag di preview, autosave + undo/redo
 - Tahap 3 — Panel render dari editor
 - Tahap 4 — Versi 2
