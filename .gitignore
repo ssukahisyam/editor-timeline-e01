@@ -7,3 +7,4 @@ public/scenes/
 public/textures/
 *.log
 .DS_Store
+backups/

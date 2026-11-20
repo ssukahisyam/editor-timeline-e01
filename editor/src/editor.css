@@ -45,3 +45,29 @@ html, body { margin: 0; padding: 0; background: #141518; color: #e8e6df; font-fa
 .tl-beat { position: absolute; top: 3px; height: 18px; border-radius: 2px; overflow: hidden; cursor: pointer; opacity: .85; padding: 1px 4px; }
 .tl-beat span { font-size: 10px; white-space: nowrap; color: #14120f; font-weight: 600; }
 .tl-beat.sel { outline: 2px solid #fff; opacity: 1; z-index: 4; }
+
+/* ---- Tahap 2: mengedit ---- */
+.savestate { font-size: 12px; color: #9fd09f; min-width: 110px; text-align: right; }
+.topbar button { background: #2a2a2a; color: #eee; border: 1px solid #444; border-radius: 6px; padding: 4px 10px; cursor: pointer; }
+.topbar button:disabled { opacity: 0.4; cursor: default; }
+.tl-scene { cursor: pointer; }
+.tl-boundary { position: absolute; right: -5px; top: 0; width: 10px; height: 100%; cursor: ew-resize; z-index: 3; }
+.tl-boundary:hover { background: rgba(255,255,255,0.35); }
+.tl-beat { cursor: grab; touch-action: none; }
+.tl-beat:active { cursor: grabbing; }
+.preview-wrap { position: relative; }
+.overlay { position: absolute; inset: 0; pointer-events: none; }
+.ov-beat { position: absolute; transform: translate(-50%, -50%); border: 1.5px dashed rgba(127,163,168,0.9); background: rgba(20,20,20,0.25); color: #eee; pointer-events: auto; cursor: move; display: flex; align-items: center; justify-content: center; overflow: hidden; border-radius: 3px; }
+.ov-beat.sel { border-color: #ffd75e; background: rgba(179,49,42,0.25); }
+.ov-beat span { font-size: 11px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; padding: 0 4px; text-shadow: 0 1px 2px #000; }
+.panel .fld { display: flex; flex-direction: column; gap: 3px; margin-bottom: 10px; font-size: 12px; color: #bbb; }
+.panel .fld.chk { flex-direction: row; align-items: center; color: #eee; font-size: 13px; }
+.panel .fld input[type="text"], .panel .fld input[type="number"], .panel .fld select { background: #222; color: #eee; border: 1px solid #444; border-radius: 5px; padding: 5px 7px; font-size: 13px; }
+.panel dl { margin-top: 12px; }
+
+/* ---- Tahap 3: render ---- */
+.renderbox { margin-top: 18px; border-top: 1px solid #333; padding-top: 12px; }
+.renderbtns { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; margin-bottom: 8px; }
+.renderbtns button { background: #2a2a2a; color: #eee; border: 1px solid #444; border-radius: 6px; padding: 6px 8px; cursor: pointer; font-size: 12.5px; }
+.renderbtns button:disabled { opacity: 0.4; cursor: default; }
+.renderlog { background: #141414; border: 1px solid #333; border-radius: 6px; padding: 8px; font-size: 11px; line-height: 1.5; max-height: 220px; overflow: auto; white-space: pre-wrap; word-break: break-all; color: #b9c9a3; }

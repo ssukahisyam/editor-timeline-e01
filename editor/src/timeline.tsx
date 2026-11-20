@@ -7,10 +7,8 @@ export interface Word {
   e: number;
 }
 
-export type Selection =
-  | {type: 'scene'; scene: SceneT}
-  | {type: 'beat'; scene: SceneT; beat: Beat}
-  | null;
+/** Pilihan disimpan sebagai id/nomor supaya tetap sah setelah data diedit. */
+export type Selection = {type: 'scene'; sceneN: number} | {type: 'beat'; beatId: string} | null;
 
 const FPS = 30;
 export const fmt = (sec: number) => {
@@ -18,6 +16,21 @@ export const fmt = (sec: number) => {
   const s = sec - m * 60;
   return `${m}:${s.toFixed(1).padStart(4, '0')}`;
 };
+
+/** Tempel ke awal kata −0,06 dtk (aturan proyek); ambang 0,35 dtk. */
+export function snapToWord(words: Word[], t: number): number {
+  let best: number | null = null;
+  let bestDist = 0.35;
+  for (const w of words) {
+    const cand = w.s - 0.06;
+    const d = Math.abs(cand - t);
+    if (d < bestDist) {
+      bestDist = d;
+      best = cand;
+    }
+  }
+  return best === null ? t : Math.round(best * 100) / 100;
+}
 
 const KIND_COLORS: Record<string, string> = {
   strip: '#c9a86a',
@@ -92,9 +105,6 @@ const Waveform: React.FC<{url: string; total: number; px: number; onSeek: (s: nu
     const g = canvas.getContext('2d')!;
     g.clearRect(0, 0, width, height);
     g.fillStyle = '#6f97a3';
-    const sr = 44100;
-    // decodeAudioData pada OfflineAudioContext(1,1,44100) menjaga laju cuplikan asli file;
-    // pakai rasio panjang data terhadap durasi total untuk keamanan.
     const perSecond = ch.length / total;
     for (let x = 0; x < width; x++) {
       const t0 = (x / px) * perSecond;
@@ -123,6 +133,8 @@ const Waveform: React.FC<{url: string; total: number; px: number; onSeek: (s: nu
   );
 };
 
+export type DragPhase = 'start' | 'move' | 'end';
+
 interface Props {
   data: Data;
   words: Word[];
@@ -132,11 +144,14 @@ interface Props {
   selection: Selection;
   onSeek: (sec: number) => void;
   onSelect: (sel: Selection) => void;
+  onBeatTime: (scene: SceneT, beat: Beat, t: number, phase: DragPhase) => void;
+  onSceneBoundary: (index: number, t: number, phase: DragPhase) => void;
 }
 
-export const Timeline: React.FC<Props> = ({data, words, voUrl, px, currentTime, selection, onSeek, onSelect}) => {
+export const Timeline: React.FC<Props> = ({data, words, voUrl, px, currentTime, selection, onSeek, onSelect, onBeatTime, onSceneBoundary}) => {
   const lanes = React.useMemo(() => buildLanes(data), [data]);
   const scrollRef = React.useRef<HTMLDivElement>(null);
+  const draggedRef = React.useRef(false);
   const width = Math.ceil(data.total * px);
   const playX = currentTime * px;
 
@@ -155,6 +170,54 @@ export const Timeline: React.FC<Props> = ({data, words, voUrl, px, currentTime, 
   const seekFromClick = (e: React.MouseEvent<HTMLDivElement>) => {
     const r = e.currentTarget.getBoundingClientRect();
     onSeek(Math.max(0, (e.clientX - r.left) / px));
+  };
+
+  const startBeatDrag = (e: React.PointerEvent, scene: SceneT, beat: Beat) => {
+    if (e.button !== 0) return;
+    e.preventDefault();
+    onSelect({type: 'beat', beatId: beat.id});
+    const startX = e.clientX;
+    const origT = beat.t;
+    draggedRef.current = false;
+    onBeatTime(scene, beat, origT, 'start');
+    const move = (ev: PointerEvent) => {
+      const raw = origT + (ev.clientX - startX) / px;
+      if (Math.abs(ev.clientX - startX) > 3) draggedRef.current = true;
+      const snapped = ev.altKey ? raw : snapToWord(words, raw);
+      const clamped = Math.min(scene.end - 0.1, Math.max(scene.start, snapped));
+      onBeatTime(scene, beat, Math.round(clamped * 100) / 100, 'move');
+    };
+    const up = () => {
+      window.removeEventListener('pointermove', move);
+      window.removeEventListener('pointerup', up);
+      onBeatTime(scene, beat, beat.t, 'end');
+    };
+    window.addEventListener('pointermove', move);
+    window.addEventListener('pointerup', up);
+  };
+
+  const startBoundaryDrag = (e: React.PointerEvent, index: number) => {
+    if (e.button !== 0) return;
+    e.preventDefault();
+    e.stopPropagation();
+    const scene = data.scenes[index];
+    const next = data.scenes[index + 1];
+    const startX = e.clientX;
+    const origT = scene.end;
+    onSceneBoundary(index, origT, 'start');
+    const move = (ev: PointerEvent) => {
+      const raw = origT + (ev.clientX - startX) / px;
+      const snapped = ev.altKey ? raw : snapToWord(words, raw);
+      const clamped = Math.min(next.end - 0.5, Math.max(scene.start + 0.5, snapped));
+      onSceneBoundary(index, Math.round(clamped * 100) / 100, 'move');
+    };
+    const up = () => {
+      window.removeEventListener('pointermove', move);
+      window.removeEventListener('pointerup', up);
+      onSceneBoundary(index, data.scenes[index].end, 'end');
+    };
+    window.addEventListener('pointermove', move);
+    window.addEventListener('pointerup', up);
   };
 
   return (
@@ -196,20 +259,23 @@ export const Timeline: React.FC<Props> = ({data, words, voUrl, px, currentTime, 
         <div className="tl-row tl-scenes">
           <div className="tl-label">Scene</div>
           <div className="tl-track">
-            {data.scenes.map((s) => (
+            {data.scenes.map((s, i) => (
               <div
                 key={s.n}
-                className={`tl-scene ${selection?.type === 'scene' && selection.scene.n === s.n ? 'sel' : ''}`}
+                className={`tl-scene ${selection?.type === 'scene' && selection.sceneN === s.n ? 'sel' : ''}`}
                 style={{left: s.start * px, width: Math.max(4, (s.end - s.start) * px - 2)}}
-                title={`${s.n}. ${s.title} · ${fmt(s.start)}–${fmt(s.end)}`}
+                title={`${s.n}. ${s.title} · ${fmt(s.start)}–${fmt(s.end)} · geser tepi kanan untuk mengubah batas`}
                 onClick={() => {
-                  onSelect({type: 'scene', scene: s});
+                  onSelect({type: 'scene', sceneN: s.n});
                   onSeek(s.start);
                 }}
               >
                 <span>
                   {s.n}. {s.title}
                 </span>
+                {i < data.scenes.length - 1 && (
+                  <div className="tl-boundary" onPointerDown={(e) => startBoundaryDrag(e, i)} title="Geser batas scene" />
+                )}
               </div>
             ))}
           </div>
@@ -221,16 +287,17 @@ export const Timeline: React.FC<Props> = ({data, words, voUrl, px, currentTime, 
               {lane.items.map(({beat, scene, end}) => (
                 <div
                   key={beat.id}
-                  className={`tl-beat ${selection?.type === 'beat' && selection.beat.id === beat.id ? 'sel' : ''}`}
+                  className={`tl-beat ${selection?.type === 'beat' && selection.beatId === beat.id ? 'sel' : ''}`}
                   style={{
                     left: beat.t * px,
                     width: Math.max(4, (end - beat.t) * px - 1),
                     background: KIND_COLORS[beat.k] || '#999',
                   }}
-                  title={`${beat.id} · ${beat.k}${beat.text ? ` · ${beat.text}` : ''} · ${fmt(beat.t)}`}
+                  title={`${beat.id} · ${beat.k}${beat.text ? ` · ${beat.text}` : ''} · ${fmt(beat.t)} · seret untuk menggeser (Alt = bebas)`}
+                  onPointerDown={(e) => startBeatDrag(e, scene, beat)}
                   onClick={() => {
-                    onSelect({type: 'beat', scene, beat});
-                    onSeek(beat.t);
+                    if (!draggedRef.current) onSeek(beat.t);
+                    draggedRef.current = false;
                   }}
                 >
                   <span>{beat.text || beat.k}</span>
