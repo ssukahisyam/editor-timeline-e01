@@ -1,5 +1,5 @@
 export type Beat = {
-  k: string; t: number; t2?: number; text?: string;
+  id: string; k: string; t: number; t2?: number; text?: string;
   x: number; y: number; rot?: number; size?: number; slot?: string; color?: string;
   anchored?: boolean; x2?: number; y2?: number; bend?: number; w?: number; h?: number; dur?: number;
   x1?: number; y1?: number;

@@ -1,11 +1,9 @@
 import React from 'react';
 import {AbsoluteFill, Audio, Sequence, staticFile, useCurrentFrame, useVideoConfig} from 'remotion';
-import scenesJson from './data/scenes.json';
 import {Data} from './types';
 import {H, W, clamp01, easeInOut, easeOut, rng} from './lib';
 import {SceneView} from './Scene';
 
-const data = scenesJson as unknown as Data;
 export const OV = 16; // frame transisi
 
 type Dir = 'r' | 'l' | 'd' | 'u';
@@ -79,7 +77,7 @@ const GlobalFx: React.FC = () => {
   );
 };
 
-export const Video: React.FC = () => {
+export const Video: React.FC<{data: Data; voFile?: string}> = ({data, voFile = 'vo.mp3'}) => {
   const {fps, durationInFrames} = useVideoConfig();
   return (
     <AbsoluteFill style={{background: '#14120f'}}>
@@ -91,7 +89,7 @@ export const Video: React.FC = () => {
           </filter>
         </defs>
       </svg>
-      <Audio src={staticFile('vo.mp3')} />
+      <Audio src={staticFile(voFile)} />
       {data.scenes.map((s, i) => {
         const startF = Math.round(s.start * fps);
         const nextStart = i + 1 < data.scenes.length ? Math.round(data.scenes[i + 1].start * fps) : durationInFrames;

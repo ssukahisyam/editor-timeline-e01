@@ -1,16 +1,41 @@
 import React from 'react';
 import {Composition} from 'remotion';
-import scenesJson from './data/scenes.json';
 import {Video} from './Video';
 import {FontGate} from './fonts';
+import {EPISODES} from './episodes';
+import {Data} from './types';
 
 const FPS = 30;
-const Main: React.FC = () => (
-  <FontGate>
-    <Video />
-  </FontGate>
-);
+
+export interface MainProps {
+  data: Data;
+  voFile: string;
+}
+
+// Remotion mengetik props Composition sebagai Record<string, unknown>;
+// di sini props divalidasi sekali menjadi MainProps.
+const Main: React.FC<Record<string, unknown>> = (props) => {
+  const {data, voFile} = props as unknown as MainProps;
+  return (
+    <FontGate>
+      <Video data={data} voFile={voFile} />
+    </FontGate>
+  );
+};
 
 export const Root: React.FC = () => (
-  <Composition id="E01" component={Main} width={1920} height={1080} fps={FPS} durationInFrames={Math.ceil((scenesJson as any).total * FPS)} />
+  <>
+    {EPISODES.map((ep) => (
+      <Composition
+        key={ep.id}
+        id={ep.code}
+        component={Main}
+        width={1920}
+        height={1080}
+        fps={FPS}
+        durationInFrames={Math.ceil(ep.data.total * FPS)}
+        defaultProps={{data: ep.data, voFile: ep.voFile}}
+      />
+    ))}
+  </>
 );

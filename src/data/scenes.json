@@ -9,6 +9,7 @@
    "title": "Dua adidaya abad ke-6",
    "beats": [
     {
+     "id": "s01-b001",
      "k": "ransom",
      "text": "ABAD KE-6",
      "x": 50,
@@ -19,6 +20,7 @@
      "t": 0.78
     },
     {
+     "id": "s01-b002",
      "k": "strip",
      "text": "DUA ADIDAYA DUNIA",
      "x": 50,
@@ -29,6 +31,7 @@
      "t": 3.3
     },
     {
+     "id": "s01-b003",
      "k": "strip",
      "text": "ROMAWI",
      "x": 23,
@@ -39,6 +42,7 @@
      "t": 5.96
     },
     {
+     "id": "s01-b004",
      "k": "strip",
      "text": "PERSIA",
      "x": 77,
@@ -73,6 +77,7 @@
    "title": "Perang ratusan tahun",
    "beats": [
     {
+     "id": "s02-b001",
      "k": "splat",
      "x": 50,
      "y": 55,
@@ -81,6 +86,7 @@
      "t": 11.26
     },
     {
+     "id": "s02-b002",
      "k": "strip",
      "text": "BERPERANG",
      "x": 50,
@@ -91,6 +97,7 @@
      "t": 11.26
     },
     {
+     "id": "s02-b003",
      "k": "strip",
      "text": "RATUSAN TAHUN",
      "x": 50,
@@ -101,6 +108,7 @@
      "t": 11.8
     },
     {
+     "id": "s02-b004",
      "k": "strip",
      "text": "MEMPEREBUTKAN SEGALANYA",
      "x": 50,
@@ -135,6 +143,7 @@
    "title": "Satu negeri tak pernah takluk",
    "beats": [
     {
+     "id": "s03-b001",
      "k": "strip",
      "text": "TAPI DI ANTARA MEREKA",
      "x": 50,
@@ -145,6 +154,7 @@
      "t": 15.46
     },
     {
+     "id": "s03-b002",
      "k": "strip",
      "text": "ADA SATU NEGERI BESAR",
      "x": 50,
@@ -155,6 +165,7 @@
      "t": 16.42
     },
     {
+     "id": "s03-b003",
      "k": "stamp",
      "text": "TIDAK PERNAH TAKLUK",
      "x": 50,
@@ -190,6 +201,7 @@
    "title": "Bukan tentara, bukan raja",
    "beats": [
     {
+     "id": "s04-b001",
      "k": "strip",
      "text": "BUKAN TENTARANYA\nPALING KUAT",
      "x": 27,
@@ -200,6 +212,7 @@
      "t": 22.4
     },
     {
+     "id": "s04-b002",
      "k": "x",
      "x": 28,
      "y": 49,
@@ -208,6 +221,7 @@
      "t": 23.74
     },
     {
+     "id": "s04-b003",
      "k": "strip",
      "text": "BUKAN RAJANYA\nPALING KAYA",
      "x": 74,
@@ -218,6 +232,7 @@
      "t": 25.34
     },
     {
+     "id": "s04-b004",
      "k": "x",
      "x": 74,
      "y": 55,
@@ -250,6 +265,7 @@
    "title": "Negeri bernama Arab",
    "beats": [
     {
+     "id": "s05-b001",
      "k": "stamp",
      "text": "ARAB",
      "x": 50,
@@ -261,6 +277,7 @@
      "t": 28.76
     },
     {
+     "id": "s05-b002",
      "k": "strip",
      "text": "RAHASIANYA...",
      "x": 50,
@@ -271,6 +288,7 @@
      "t": 30.12
     },
     {
+     "id": "s05-b003",
      "k": "strip",
      "text": "MEMBUAT PENAKLUK\nBERPIKIR DUA KALI",
      "x": 50,
@@ -281,6 +299,7 @@
      "t": 34.48
     },
     {
+     "id": "s05-b004",
      "k": "ransom",
      "text": "NEGERINYA SENDIRI",
      "x": 50,
@@ -315,6 +334,7 @@
    "title": "Peta Jazirah Arab",
    "beats": [
     {
+     "id": "s06-b001",
      "k": "strip",
      "text": "LIHAT PETA INI",
      "x": 50,
@@ -325,6 +345,7 @@
      "t": 38.34
     },
     {
+     "id": "s06-b002",
      "k": "label",
      "text": "JAZIRAH ARAB",
      "x": 50,
@@ -336,6 +357,7 @@
      "t": 40.12
     },
     {
+     "id": "s06-b003",
      "k": "strip",
      "text": "SEMENANJUNG TERBESAR\nDI DUNIA",
      "x": 50,
@@ -346,6 +368,7 @@
      "t": 41.2
     },
     {
+     "id": "s06-b004",
      "k": "stamp",
      "text": "> 1 JUTA MIL PERSEGI",
      "x": 72,
@@ -357,6 +380,7 @@
      "t": 43.46
     },
     {
+     "id": "s06-b005",
      "k": "label",
      "text": "LAUT MERAH",
      "x": 27,
@@ -368,6 +392,7 @@
      "t": 47.54
     },
     {
+     "id": "s06-b006",
      "k": "ripple",
      "x": 27,
      "y": 52,
@@ -377,6 +402,7 @@
      "t": 47.54
     },
     {
+     "id": "s06-b007",
      "k": "label",
      "text": "TELUK ARAB",
      "x": 63,
@@ -388,6 +414,7 @@
      "t": 49.46
     },
     {
+     "id": "s06-b008",
      "k": "ripple",
      "x": 63,
      "y": 30,
@@ -397,6 +424,7 @@
      "t": 49.46
     },
     {
+     "id": "s06-b009",
      "k": "label",
      "text": "SAMUDERA HINDIA",
      "x": 74,
@@ -408,6 +436,7 @@
      "t": 51.56
     },
     {
+     "id": "s06-b010",
      "k": "ripple",
      "x": 74,
      "y": 78,
@@ -417,6 +446,7 @@
      "t": 51.56
     },
     {
+     "id": "s06-b011",
      "k": "strip",
      "text": "TIGA SISINYA\nDIJAGA AIR",
      "x": 50,
@@ -427,6 +457,7 @@
      "t": 53.48
     },
     {
+     "id": "s06-b012",
      "k": "circle",
      "x": 40,
      "y": 17,
@@ -436,6 +467,7 @@
      "t": 59.24
     },
     {
+     "id": "s06-b013",
      "k": "strip",
      "text": "DI UTARA: SESUATU YANG\nLEBIH KEJAM DARI LAUT",
      "x": 50,
@@ -470,6 +502,7 @@
    "title": "Gurun tanpa air",
    "beats": [
     {
+     "id": "s07-b001",
      "k": "strip",
      "text": "GURUN PASIR",
      "x": 50,
@@ -480,6 +513,7 @@
      "t": 62.48
     },
     {
+     "id": "s07-b002",
      "k": "strip",
      "text": "RATUSAN KILOMETER",
      "x": 50,
@@ -490,6 +524,7 @@
      "t": 64.22
     },
     {
+     "id": "s07-b003",
      "k": "strip",
      "text": "TANPA SUNGAI",
      "x": 50,
@@ -500,6 +535,7 @@
      "t": 66.22
     },
     {
+     "id": "s07-b004",
      "k": "strip",
      "text": "TANPA SUMUR",
      "x": 50,
@@ -510,6 +546,7 @@
      "t": 67.56
     },
     {
+     "id": "s07-b005",
      "k": "strip",
      "text": "YANG BISA DIANDALKAN\nPASUKAN BESAR",
      "x": 50,
@@ -544,6 +581,7 @@
    "title": "Benteng yang tak terjajah",
    "beats": [
     {
+     "id": "s08-b001",
      "k": "strip",
      "text": "BUKU SIRAH",
      "x": 50,
@@ -554,6 +592,7 @@
      "t": 71.04
     },
     {
+     "id": "s08-b002",
      "k": "strip",
      "text": "SATU\nFRASA",
      "x": 14,
@@ -564,6 +603,7 @@
      "t": 73.8
     },
     {
+     "id": "s08-b003",
      "k": "ransom",
      "text": "BENTENG YANG\nTAK TERJAJAH",
      "x": 50,
@@ -598,6 +638,7 @@
    "title": "Kota dan kerajaan",
    "beats": [
     {
+     "id": "s09-b001",
      "k": "strip",
      "text": "PASUKAN ROMAWI",
      "x": 25,
@@ -608,6 +649,7 @@
      "t": 78.58
     },
     {
+     "id": "s09-b002",
      "k": "stamp",
      "text": "KOTA",
      "x": 25,
@@ -619,6 +661,7 @@
      "t": 80.22
     },
     {
+     "id": "s09-b003",
      "k": "strip",
      "text": "PASUKAN PERSIA",
      "x": 75,
@@ -629,6 +672,7 @@
      "t": 81.32
     },
     {
+     "id": "s09-b004",
      "k": "stamp",
      "text": "KERAJAAN",
      "x": 75,
@@ -664,6 +708,7 @@
    "title": "Logistik vs pasir",
    "beats": [
     {
+     "id": "s10-b001",
      "k": "strip",
      "text": "TAK ADA LOGISTIK\nABAD KE-6",
      "x": 50,
@@ -674,6 +719,7 @@
      "t": 84.52
     },
     {
+     "id": "s10-b002",
      "k": "ransom",
      "text": "PASIR",
      "x": 50,
@@ -708,6 +754,7 @@
    "title": "Perang lewat tangan orang lain",
    "beats": [
     {
+     "id": "s11-b001",
      "k": "strip",
      "text": "TIDAK BISA MASUK",
      "x": 50,
@@ -718,6 +765,7 @@
      "t": 89.96
     },
     {
+     "id": "s11-b002",
      "k": "strip",
      "text": "MEMILIH CARA LAIN",
      "x": 50,
@@ -728,6 +776,7 @@
      "t": 92.72
     },
     {
+     "id": "s11-b003",
      "k": "ransom",
      "text": "TANGAN\nORANG LAIN",
      "x": 50,
@@ -762,6 +811,7 @@
    "title": "Ghassan dan Hirah",
    "beats": [
     {
+     "id": "s12-b001",
      "k": "strip",
      "text": "ROMAWI",
      "x": 25,
@@ -772,6 +822,7 @@
      "t": 97.15
     },
     {
+     "id": "s12-b002",
      "k": "stamp",
      "text": "GHASSAN",
      "x": 25,
@@ -783,6 +834,7 @@
      "t": 98.63
     },
     {
+     "id": "s12-b003",
      "k": "label",
      "text": "SYAM",
      "x": 24,
@@ -794,6 +846,7 @@
      "t": 99.77
     },
     {
+     "id": "s12-b004",
      "k": "strip",
      "text": "PERSIA",
      "x": 75,
@@ -804,6 +857,7 @@
      "t": 100.85
     },
     {
+     "id": "s12-b005",
      "k": "stamp",
      "text": "HIRAH",
      "x": 75,
@@ -815,6 +869,7 @@
      "t": 102.51
     },
     {
+     "id": "s12-b006",
      "k": "label",
      "text": "IRAK",
      "x": 76,
@@ -850,6 +905,7 @@
    "title": "Penyangga dua kaisar",
    "beats": [
     {
+     "id": "s13-b001",
      "k": "ransom",
      "text": "PENYANGGA",
      "x": 50,
@@ -860,6 +916,7 @@
      "t": 106.57
     },
     {
+     "id": "s13-b002",
      "k": "strip",
      "text": "SALING BERPERANG",
      "x": 50,
@@ -870,6 +927,7 @@
      "t": 107.73
     },
     {
+     "id": "s13-b003",
      "k": "strip",
      "text": "ATAS NAMA DUA KAISAR",
      "x": 50,
@@ -880,6 +938,7 @@
      "t": 108.53
     },
     {
+     "id": "s13-b004",
      "k": "strip",
      "text": "YANG TIDAK PERNAH\nDATANG SENDIRI",
      "x": 50,
@@ -914,6 +973,7 @@
    "title": "Kabilah tanpa raja",
    "beats": [
     {
+     "id": "s14-b001",
      "k": "strip",
      "text": "JAUH DI PEDALAMAN",
      "x": 50,
@@ -924,6 +984,7 @@
      "t": 113.15
     },
     {
+     "id": "s14-b002",
      "k": "ransom",
      "text": "TANPA RAJA",
      "x": 50,
@@ -958,6 +1019,7 @@
    "title": "Tiga yang tak ada",
    "beats": [
     {
+     "id": "s15-b001",
      "k": "strip",
      "text": "IBU KOTA\nUNTUK DIREBUT",
      "x": 17,
@@ -968,6 +1030,7 @@
      "t": 118.65
     },
     {
+     "id": "s15-b002",
      "k": "x",
      "x": 17,
      "y": 48,
@@ -976,6 +1039,7 @@
      "t": 119.93
     },
     {
+     "id": "s15-b003",
      "k": "strip",
      "text": "ISTANA\nUNTUK DIBAKAR",
      "x": 50,
@@ -986,6 +1050,7 @@
      "t": 120.79
     },
     {
+     "id": "s15-b004",
      "k": "x",
      "x": 50,
      "y": 46,
@@ -994,6 +1059,7 @@
      "t": 122.11
     },
     {
+     "id": "s15-b005",
      "k": "strip",
      "text": "TAHTA\nUNTUK DIDUDUKI",
      "x": 83,
@@ -1004,6 +1070,7 @@
      "t": 123.11
     },
     {
+     "id": "s15-b006",
      "k": "x",
      "x": 83,
      "y": 48,
@@ -1036,6 +1103,7 @@
    "title": "Negeri tanpa pusat",
    "beats": [
     {
+     "id": "s16-b001",
      "k": "circle",
      "x": 50,
      "y": 50,
@@ -1045,6 +1113,7 @@
      "t": 127.29
     },
     {
+     "id": "s16-b002",
      "k": "ransom",
      "text": "TANPA PUSAT",
      "x": 50,
@@ -1055,6 +1124,7 @@
      "t": 127.29
     },
     {
+     "id": "s16-b003",
      "k": "strip",
      "text": "JAUH LEBIH SULIT",
      "x": 50,
@@ -1065,6 +1135,7 @@
      "t": 128.35
     },
     {
+     "id": "s16-b004",
      "k": "strip",
      "text": "DARIPADA MENAKLUKKAN IMPERIUM",
      "x": 50,
@@ -1099,6 +1170,7 @@
    "title": "Simpul dunia",
    "beats": [
     {
+     "id": "s17-b001",
      "k": "strip",
      "text": "JANGAN BAYANGKAN\nNEGERI INI TERASING",
      "x": 50,
@@ -1109,6 +1181,7 @@
      "t": 132.67
     },
     {
+     "id": "s17-b002",
      "k": "ransom",
      "text": "SIMPUL DUNIA",
      "x": 50,
@@ -1119,6 +1192,7 @@
      "t": 137.19
     },
     {
+     "id": "s17-b003",
      "k": "arrow",
      "x": 49,
      "y": 51,
@@ -1131,6 +1205,7 @@
      "t": 139.97
     },
     {
+     "id": "s17-b004",
      "k": "label",
      "text": "AFRIKA",
      "x": 14,
@@ -1142,6 +1217,7 @@
      "t": 140.79
     },
     {
+     "id": "s17-b005",
      "k": "arrow",
      "x": 49,
      "y": 51,
@@ -1154,6 +1230,7 @@
      "t": 142.89
     },
     {
+     "id": "s17-b006",
      "k": "label",
      "text": "EROPA",
      "x": 20,
@@ -1165,6 +1242,7 @@
      "t": 143.85
     },
     {
+     "id": "s17-b007",
      "k": "arrow",
      "x": 49,
      "y": 51,
@@ -1177,6 +1255,7 @@
      "t": 145.89
     },
     {
+     "id": "s17-b008",
      "k": "label",
      "text": "INDIA",
      "x": 76,
@@ -1188,6 +1267,7 @@
      "t": 147.25
     },
     {
+     "id": "s17-b009",
      "k": "arrow",
      "x": 49,
      "y": 51,
@@ -1200,6 +1280,7 @@
      "t": 148.17
     },
     {
+     "id": "s17-b010",
      "k": "label",
      "text": "CINA",
      "x": 87,
@@ -1235,6 +1316,7 @@
    "title": "Kafilah dan kapal dagang",
    "beats": [
     {
+     "id": "s18-b001",
      "k": "strip",
      "text": "KAFILAH UNTA",
      "x": 50,
@@ -1245,6 +1327,7 @@
      "t": 149.25
     },
     {
+     "id": "s18-b002",
      "k": "strip",
      "text": "KEMENYAN",
      "x": 50,
@@ -1255,6 +1338,7 @@
      "t": 151.33
     },
     {
+     "id": "s18-b003",
      "k": "strip",
      "text": "REMPAH",
      "x": 50,
@@ -1265,6 +1349,7 @@
      "t": 152.19
     },
     {
+     "id": "s18-b004",
      "k": "strip",
      "text": "YAMAN → SYAM → GAZA",
      "x": 50,
@@ -1275,6 +1360,7 @@
      "t": 153.53
     },
     {
+     "id": "s18-b005",
      "k": "strip",
      "text": "KAPAL-KAPAL\nBERLAYAR",
      "x": 77,
@@ -1285,6 +1371,7 @@
      "t": 156.57
     },
     {
+     "id": "s18-b006",
      "k": "strip",
      "text": "HABASYAH\n& INDIA",
      "x": 77,
@@ -1319,6 +1406,7 @@
    "title": "Memungut keamanan",
    "beats": [
     {
+     "id": "s19-b001",
      "k": "strip",
      "text": "SETIAP KABILAH",
      "x": 30,
@@ -1329,6 +1417,7 @@
      "t": 161.83
     },
     {
+     "id": "s19-b002",
      "k": "strip",
      "text": "MEMUNGUT KEAMANAN",
      "x": 28,
@@ -1339,6 +1428,7 @@
      "t": 164.23
     },
     {
+     "id": "s19-b003",
      "k": "ransom",
      "text": "KEUNTUNGAN",
      "x": 40,
@@ -1373,6 +1463,7 @@
    "title": "Terlalu miskin, terlalu penting",
    "beats": [
     {
+     "id": "s20-b001",
      "k": "stamp",
      "text": "TERLALU MISKIN",
      "x": 26,
@@ -1384,6 +1475,7 @@
      "t": 168.99
     },
     {
+     "id": "s20-b002",
      "k": "strip",
      "text": "UNTUK DITAKLUKKAN",
      "x": 26,
@@ -1394,6 +1486,7 @@
      "t": 169.77
     },
     {
+     "id": "s20-b003",
      "k": "stamp",
      "text": "TERLALU PENTING",
      "x": 78,
@@ -1405,6 +1498,7 @@
      "t": 171.65
     },
     {
+     "id": "s20-b004",
      "k": "strip",
      "text": "UNTUK DIBIARKAN",
      "x": 78,
@@ -1439,6 +1533,7 @@
    "title": "Tiga lapisan bangsa Arab",
    "beats": [
     {
+     "id": "s21-b001",
      "k": "strip",
      "text": "SIAPA YANG TINGGAL\nDI BENTENG INI?",
      "x": 50,
@@ -1449,6 +1544,7 @@
      "t": 174.21
     },
     {
+     "id": "s21-b002",
      "k": "strip",
      "text": "TIGA LAPISAN\nBANGSA ARAB",
      "x": 50,
@@ -1483,6 +1579,7 @@
    "title": "Arab Ba'idah",
    "beats": [
     {
+     "id": "s22-b001",
      "k": "strip",
      "text": "1 · ARAB BA'IDAH",
      "x": 50,
@@ -1493,6 +1590,7 @@
      "t": 180.63
     },
     {
+     "id": "s22-b002",
      "k": "strip",
      "text": "BANGSA YANG SUDAH PUNAH",
      "x": 50,
@@ -1503,6 +1601,7 @@
      "t": 183.15
     },
     {
+     "id": "s22-b003",
      "k": "stamp",
      "text": "'AD · TSAMUD",
      "x": 55,
@@ -1514,6 +1613,7 @@
      "t": 185.49
     },
     {
+     "id": "s22-b004",
      "k": "strip",
      "text": "TINGGAL REKERUNTUHANNYA",
      "x": 50,
@@ -1524,6 +1624,7 @@
      "t": 188.25
     },
     {
+     "id": "s22-b005",
      "k": "strip",
      "text": "PERINGATAN DI TEPI\nJALAN KAFILAH",
      "x": 50,
@@ -1558,6 +1659,7 @@
    "title": "Arab 'Aribah",
    "beats": [
     {
+     "id": "s23-b001",
      "k": "strip",
      "text": "2 · ARAB 'ARIBAH",
      "x": 50,
@@ -1568,6 +1670,7 @@
      "t": 193.24
     },
     {
+     "id": "s23-b002",
      "k": "strip",
      "text": "KETURUNAN QAHTHAN\nDARI YAMAN",
      "x": 50,
@@ -1578,6 +1681,7 @@
      "t": 195.7
     },
     {
+     "id": "s23-b003",
      "k": "strip",
      "text": "PALING SUBUR\nPALING BERADAB",
      "x": 50,
@@ -1612,6 +1716,7 @@
    "title": "Migrasi besar",
    "beats": [
     {
+     "id": "s24-b001",
      "k": "strip",
      "text": "MIGRASI BESAR",
      "x": 50,
@@ -1622,6 +1727,7 @@
      "t": 202.42
     },
     {
+     "id": "s24-b002",
      "k": "strip",
      "text": "KABILAH KAHLAN\nKE SEGALA PENJURU",
      "x": 50,
@@ -1632,6 +1738,7 @@
      "t": 206.84
     },
     {
+     "id": "s24-b003",
      "k": "arrow",
      "x": 44,
      "y": 76,
@@ -1644,6 +1751,7 @@
      "t": 207.18
     },
     {
+     "id": "s24-b004",
      "k": "arrow",
      "x": 44,
      "y": 76,
@@ -1656,6 +1764,7 @@
      "t": 207.18
     },
     {
+     "id": "s24-b005",
      "k": "arrow",
      "x": 44,
      "y": 76,
@@ -1668,6 +1777,7 @@
      "t": 207.18
     },
     {
+     "id": "s24-b006",
      "k": "arrow",
      "x": 44,
      "y": 76,
@@ -1680,6 +1790,7 @@
      "t": 207.18
     },
     {
+     "id": "s24-b007",
      "k": "pin",
      "text": "YATSRIB · AUS & KHAZRAJ",
      "x": 27,
@@ -1688,6 +1799,7 @@
      "t": 210.38
     },
     {
+     "id": "s24-b008",
      "k": "pin",
      "text": "MAKKAH · KHUZA'AH",
      "x": 31,
@@ -1696,6 +1808,7 @@
      "t": 212.56
     },
     {
+     "id": "s24-b009",
      "k": "pin",
      "text": "SYAM · GHASSAN",
      "x": 33,
@@ -1704,6 +1817,7 @@
      "t": 214.36
     },
     {
+     "id": "s24-b010",
      "k": "pin",
      "text": "HIRAH · LAKHM",
      "x": 49,
@@ -1712,6 +1826,7 @@
      "t": 215.86
     },
     {
+     "id": "s24-b011",
      "k": "strip",
      "text": "PETA ARAB MODERN DIGAMBAR\nOLEH MIGRASI ITU",
      "x": 50,
@@ -1746,6 +1861,7 @@
    "title": "Arab Musta'ribah",
    "beats": [
     {
+     "id": "s25-b001",
      "k": "strip",
      "text": "3 · ARAB MUSTA'RIBAH",
      "x": 25,
@@ -1756,6 +1872,7 @@
      "t": 221.86
     },
     {
+     "id": "s25-b002",
      "k": "strip",
      "text": "DITINGGALKAN AYAHNYA",
      "x": 50,
@@ -1766,6 +1883,7 @@
      "t": 225.98
     },
     {
+     "id": "s25-b003",
      "k": "strip",
      "text": "DI LEMBAH KOSONG",
      "x": 50,
@@ -1776,6 +1894,7 @@
      "t": 227.06
     },
     {
+     "id": "s25-b004",
      "k": "strip",
      "text": "SATU KANTONG AIR",
      "x": 50,
@@ -1786,6 +1905,7 @@
      "t": 230.92
     },
     {
+     "id": "s25-b005",
      "k": "ransom",
      "text": "ISMAIL",
      "x": 50,
@@ -1820,6 +1940,7 @@
    "title": "Ibrahim meninggalkan Hajar",
    "beats": [
     {
+     "id": "s26-b001",
      "k": "ransom",
      "text": "IBRAHIM",
      "x": 50,
@@ -1830,6 +1951,7 @@
      "t": 234.8
     },
     {
+     "id": "s26-b002",
      "k": "strip",
      "text": "MENINGGALKAN HAJAR\nDAN BAYI ISMAIL",
      "x": 30,
@@ -1840,6 +1962,7 @@
      "t": 235.2
     },
     {
+     "id": "s26-b003",
      "k": "strip",
      "text": "LEMBAH YANG TIDAK\nMENUMBUHKAN APA-APA",
      "x": 30,
@@ -1874,6 +1997,7 @@
    "title": "Tak ada air, manusia, pohon",
    "beats": [
     {
+     "id": "s27-b001",
      "k": "strip",
      "text": "TIDAK ADA AIR",
      "x": 17,
@@ -1884,6 +2008,7 @@
      "t": 240.58
     },
     {
+     "id": "s27-b002",
      "k": "x",
      "x": 17,
      "y": 52,
@@ -1892,6 +2017,7 @@
      "t": 241.04
     },
     {
+     "id": "s27-b003",
      "k": "strip",
      "text": "TIDAK ADA MANUSIA",
      "x": 50,
@@ -1902,6 +2028,7 @@
      "t": 241.86
     },
     {
+     "id": "s27-b004",
      "k": "x",
      "x": 50,
      "y": 52,
@@ -1910,6 +2037,7 @@
      "t": 242.28
     },
     {
+     "id": "s27-b005",
      "k": "strip",
      "text": "TIDAK ADA POHON",
      "x": 83,
@@ -1920,6 +2048,7 @@
      "t": 243.34
     },
     {
+     "id": "s27-b006",
      "k": "x",
      "x": 83,
      "y": 52,
@@ -1952,6 +2081,7 @@
    "title": "Hajar berlari antara Shafa dan Marwah",
    "beats": [
     {
+     "id": "s28-b001",
      "k": "strip",
      "text": "BEKAL HABIS",
      "x": 24,
@@ -1962,6 +2092,7 @@
      "t": 245.4
     },
     {
+     "id": "s28-b002",
      "k": "strip",
      "text": "BAYI MENANGIS KEHAUSAN",
      "x": 30,
@@ -1972,6 +2103,7 @@
      "t": 246.84
     },
     {
+     "id": "s28-b003",
      "k": "run7",
      "x1": 30,
      "y1": 66,
@@ -1982,6 +2114,7 @@
      "t2": 253.18
     },
     {
+     "id": "s28-b004",
      "k": "label",
      "text": "SHAFA",
      "x": 14,
@@ -1993,6 +2126,7 @@
      "t": 250.82
     },
     {
+     "id": "s28-b005",
      "k": "label",
      "text": "MARWAH",
      "x": 86,
@@ -2004,6 +2138,7 @@
      "t": 251.82
     },
     {
+     "id": "s28-b006",
      "k": "strip",
      "text": "MENCARI TANDA KEHIDUPAN",
      "x": 34,
@@ -2038,6 +2173,7 @@
    "title": "Zamzam",
    "beats": [
     {
+     "id": "s29-b001",
      "k": "strip",
      "text": "YANG MENJAWAB\nBUKAN MANUSIA",
      "x": 50,
@@ -2048,6 +2184,7 @@
      "t": 254.5
     },
     {
+     "id": "s29-b002",
      "k": "strip",
      "text": "AIR MEMANCAR DARI TANAH",
      "x": 50,
@@ -2058,6 +2195,7 @@
      "t": 256.6
     },
     {
+     "id": "s29-b003",
      "k": "ripple",
      "x": 50,
      "y": 66,
@@ -2067,6 +2205,7 @@
      "t": 256.84
     },
     {
+     "id": "s29-b004",
      "k": "stamp",
      "text": "ZAMZAM",
      "x": 50,
@@ -2102,6 +2241,7 @@
    "title": "Air jadi kota",
    "beats": [
     {
+     "id": "s30-b001",
      "k": "strip",
      "text": "KABAR TENTANG AIR\nDI TENGAH GURUN",
      "x": 50,
@@ -2112,11 +2252,13 @@
      "t": 261.34
     },
     {
+     "id": "s30-b002",
      "k": "embers",
      "dur": 3.4,
      "t": 263.0
     },
     {
+     "id": "s30-b003",
      "k": "strip",
      "text": "MENYEBAR SEPERTI API",
      "x": 50,
@@ -2127,6 +2269,7 @@
      "t": 263.0
     },
     {
+     "id": "s30-b004",
      "k": "strip",
      "text": "KABILAH JURHUM\nDARI YAMAN",
      "x": 50,
@@ -2137,6 +2280,7 @@
      "t": 265.28
     },
     {
+     "id": "s30-b005",
      "k": "ransom",
      "text": "MENJADI KOTA",
      "x": 50,
@@ -2147,6 +2291,7 @@
      "t": 268.6
     },
     {
+     "id": "s30-b006",
      "k": "strip",
      "text": "ISMAIL TUMBUH · MENIKAH",
      "x": 50,
@@ -2194,6 +2339,7 @@
    "trans": "tear-r",
    "beats": [
     {
+     "id": "s31-b001",
      "k": "tag",
      "text": "ISMAIL",
      "x": 10,
@@ -2204,6 +2350,7 @@
      "t": 274.2
     },
     {
+     "id": "s31-b002",
      "k": "strip",
      "text": "DUA BELAS PUTRA",
      "x": 50,
@@ -2214,6 +2361,7 @@
      "t": 274.5
     },
     {
+     "id": "s31-b003",
      "k": "tag",
      "text": "QAIDAR",
      "x": 24,
@@ -2224,6 +2372,7 @@
      "t": 277.42
     },
     {
+     "id": "s31-b004",
      "k": "tag",
      "text": "ADNAN",
      "x": 38,
@@ -2234,6 +2383,7 @@
      "t": 278.38
     },
     {
+     "id": "s31-b005",
      "k": "tag",
      "text": "MA'AD",
      "x": 52,
@@ -2244,6 +2394,7 @@
      "t": 279.4
     },
     {
+     "id": "s31-b006",
      "k": "tag",
      "text": "NIZAR",
      "x": 64,
@@ -2254,6 +2405,7 @@
      "t": 280.18
     },
     {
+     "id": "s31-b007",
      "k": "tag",
      "text": "MUDHAR",
      "x": 76,
@@ -2264,6 +2416,7 @@
      "t": 281.04
     },
     {
+     "id": "s31-b008",
      "k": "tag",
      "text": "FIHR",
      "x": 85,
@@ -2274,6 +2427,7 @@
      "t": 282.54
     },
     {
+     "id": "s31-b009",
      "k": "stamp",
      "text": "QURAISY",
      "x": 75,
@@ -2296,6 +2450,7 @@
    "title": "Mekah berawal dari mata air",
    "beats": [
     {
+     "id": "s32-b001",
      "k": "ransom",
      "text": "MEKAH",
      "x": 50,
@@ -2306,6 +2461,7 @@
      "t": 286.23
     },
     {
+     "id": "s32-b002",
      "k": "strip",
      "text": "SEMUANYA BERAWAL\nDARI SATU MATA AIR",
      "x": 50,
@@ -2340,6 +2496,7 @@
    "title": "Ayah dan anak membangun",
    "beats": [
     {
+     "id": "s33-b001",
      "k": "strip",
      "text": "IBRAHIM DATANG KEMBALI\nBERKALI-KALI",
      "x": 30,
@@ -2350,6 +2507,7 @@
      "t": 289.79
     },
     {
+     "id": "s33-b002",
      "k": "strip",
      "text": "AYAH & ANAK\nTERPISAH HAMPIR SEUMUR HIDUP",
      "x": 30,
@@ -2360,6 +2518,7 @@
      "t": 294.77
     },
     {
+     "id": "s33-b003",
      "k": "ransom",
      "text": "MENINGGIKAN\nFONDASI",
      "x": 50,
@@ -2394,6 +2553,7 @@
    "title": "Rumah untuk Allah semata",
    "beats": [
     {
+     "id": "s34-b001",
      "k": "ransom",
      "text": "RUMAH KA'BAH",
      "x": 50,
@@ -2404,6 +2564,7 @@
      "t": 302.63
     },
     {
+     "id": "s34-b002",
      "k": "strip",
      "text": "BUKAN UNTUK RAJA",
      "x": 50,
@@ -2414,6 +2575,7 @@
      "t": 305.91
     },
     {
+     "id": "s34-b003",
      "k": "strip",
      "text": "BUKAN UNTUK BERHALA",
      "x": 50,
@@ -2424,6 +2586,7 @@
      "t": 307.13
     },
     {
+     "id": "s34-b004",
      "k": "stamp",
      "text": "UNTUK ALLAH SEMATA",
      "x": 50,
@@ -2459,6 +2622,7 @@
    "title": "Jantung Jazirah",
    "beats": [
     {
+     "id": "s35-b001",
      "k": "strip",
      "text": "DARI RUMAH ITULAH\nMEKAH MENDAPAT KEHORMATAN",
      "x": 50,
@@ -2469,6 +2633,7 @@
      "t": 310.99
     },
     {
+     "id": "s35-b002",
      "k": "ripple",
      "x": 50,
      "y": 50,
@@ -2478,6 +2643,7 @@
      "t": 313.53
     },
     {
+     "id": "s35-b003",
      "k": "strip",
      "text": "DI MATA SELURUH ARAB",
      "x": 50,
@@ -2488,6 +2654,7 @@
      "t": 314.63
     },
     {
+     "id": "s35-b004",
      "k": "strip",
      "text": "MENJAGA RUMAH ITU =\nMENJAGA JANTUNG JAZIRAH",
      "x": 50,
@@ -2522,6 +2689,7 @@
    "title": "Berhenti di Adnan",
    "beats": [
     {
+     "id": "s36-b001",
      "k": "strip",
      "text": "GARIS KETURUNAN ISMAIL\nDIJAGA DENGAN BANGGA",
      "x": 30,
@@ -2532,6 +2700,7 @@
      "t": 319.83
     },
     {
+     "id": "s36-b002",
      "k": "strip",
      "text": "RIBUAN TAHUN",
      "x": 30,
@@ -2542,6 +2711,7 @@
      "t": 324.37
     },
     {
+     "id": "s36-b003",
      "k": "strip",
      "text": "SATU KEJUJURAN",
      "x": 30,
@@ -2552,6 +2722,7 @@
      "t": 326.57
     },
     {
+     "id": "s36-b004",
      "k": "ransom",
      "text": "BERHENTI DI ADNAN",
      "x": 50,
@@ -2562,6 +2733,7 @@
      "t": 330.25
     },
     {
+     "id": "s36-b005",
      "k": "strip",
      "text": "DI ATAS ITU\nBANYAK BERDUSTA",
      "x": 30,
@@ -2596,6 +2768,7 @@
    "title": "Pasti dan diperselisihkan",
    "beats": [
     {
+     "id": "s37-b001",
      "k": "strip",
      "text": "KEJUJURAN YANG SAMA",
      "x": 50,
@@ -2606,6 +2779,7 @@
      "t": 338.01
     },
     {
+     "id": "s37-b002",
      "k": "stamp",
      "text": "PASTI",
      "x": 27,
@@ -2617,6 +2791,7 @@
      "t": 339.81
     },
     {
+     "id": "s37-b003",
      "k": "strip",
      "text": "KAMI CERITAKAN\nSEBAGAI PASTI",
      "x": 27,
@@ -2627,6 +2802,7 @@
      "t": 340.69
     },
     {
+     "id": "s37-b004",
      "k": "stamp",
      "text": "DIPERSELISIHKAN",
      "x": 72,
@@ -2638,6 +2814,7 @@
      "t": 342.65
     },
     {
+     "id": "s37-b005",
      "k": "strip",
      "text": "KAMI SEBUT\nDIPERSELISIHKAN",
      "x": 72,
@@ -2672,6 +2849,7 @@
    "title": "Inilah panggungnya",
    "beats": [
     {
+     "id": "s38-b001",
      "k": "ransom",
      "text": "INILAH\nPANGGUNGNYA",
      "x": 50,
@@ -2682,6 +2860,7 @@
      "t": 346.59
     },
     {
+     "id": "s38-b002",
      "k": "strip",
      "text": "BENTENG GURUN YANG\nTIDAK PERNAH TAKLUK",
      "x": 50,
@@ -2716,6 +2895,7 @@
    "title": "Diapit dua imperium",
    "beats": [
     {
+     "id": "s39-b001",
      "k": "strip",
      "text": "DIAPIT DUA IMPERIUM",
      "x": 50,
@@ -2750,6 +2930,7 @@
    "title": "Dilalui seluruh dunia",
    "beats": [
     {
+     "id": "s40-b001",
      "k": "strip",
      "text": "DILALUI SELURUH DUNIA",
      "x": 50,
@@ -2784,6 +2965,7 @@
    "title": "Rumah suci ayah dan anak",
    "beats": [
     {
+     "id": "s41-b001",
      "k": "strip",
      "text": "DI JANTUNGNYA: RUMAH SUCI",
      "x": 50,
@@ -2794,6 +2976,7 @@
      "t": 355.09
     },
     {
+     "id": "s41-b002",
      "k": "ransom",
      "text": "DIBANGUN\nAYAH & ANAK",
      "x": 50,
@@ -2841,6 +3024,7 @@
    "trans": "tear-u",
    "beats": [
     {
+     "id": "s42-b001",
      "k": "type",
      "text": "Tapi panggung ini\nbelum selesai bercerita.",
      "x": 50,
@@ -2861,6 +3045,7 @@
    "title": "Bendungan Ma'rib",
    "beats": [
     {
+     "id": "s43-b001",
      "k": "strip",
      "text": "JAUH DI SELATAN · YAMAN",
      "x": 50,
@@ -2871,6 +3056,7 @@
      "t": 362.07
     },
     {
+     "id": "s43-b002",
      "k": "strip",
      "text": "PERADABAN ARAB PALING\nKAYA & PALING TUA",
      "x": 50,
@@ -2881,6 +3067,7 @@
      "t": 364.53
     },
     {
+     "id": "s43-b003",
      "k": "strip",
      "text": "SELURUH KEKAYAANNYA\nBERTUMPU PADA SATU BANGUNAN",
      "x": 50,
@@ -2891,6 +3078,7 @@
      "t": 367.71
     },
     {
+     "id": "s43-b004",
      "k": "ransom",
      "text": "BENDUNGAN\nMA'RIB",
      "x": 32,
@@ -2925,6 +3113,7 @@
    "title": "Bendungan jebol",
    "beats": [
     {
+     "id": "s44-b001",
      "k": "strip",
      "text": "APA YANG TERJADI KETIKA\nBENDUNGANNYA JEBOL?",
      "x": 50,
@@ -2935,12 +3124,14 @@
      "t": 374.49
     },
     {
+     "id": "s44-b002",
      "k": "crack",
      "x": 50,
      "y": 40,
      "t": 377.77
     },
     {
+     "id": "s44-b003",
      "k": "ransom",
      "text": "CERITA\nBERIKUTNYA",
      "x": 50,
