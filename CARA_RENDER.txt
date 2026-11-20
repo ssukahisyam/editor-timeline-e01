@@ -1,0 +1,22 @@
+CARA RENDER E01 SENDIRI
+=======================
+
+Sekali saja:
+1. Pasang Node.js versi LTS (20.11 ke atas): https://nodejs.org
+2. Buat folder bernama "gambar" di sebelah file package.json, lalu masukkan SEMUA
+   gambar di dalamnya (campur satu folder, tanpa subfolder):
+      01.png ... 36.png   dan   t1.png, t2.png (t3.png boleh ada)
+
+Setiap kali mau render:
+- Windows : klik dua kali RENDER.bat
+- Mac/Linux: ./render.sh   (di terminal, di dalam folder ini)
+
+Pilih menu:
+  1 = cek cepat 60 detik pertama (540p), untuk memastikan semuanya benar
+  2 = video penuh 1080p
+  3 = video penuh 4K
+  4 = potongan tertentu (misal revisi detik 120–180)
+
+Hasil ada di folder "hasil". Suara (VO) sudah ikut di dalam video.
+Pertama kali, Remotion mengunduh Chrome sendiri (±100 MB) — itu normal.
+Kalau ada error, salin pesan errornya dan kirim ke Claude.

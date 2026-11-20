@@ -1,0 +1,9 @@
+node_modules/
+hasil/
+out/
+gambar/
+public/vo.mp3
+public/scenes/
+public/textures/
+*.log
+.DS_Store

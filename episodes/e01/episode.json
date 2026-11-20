@@ -1,0 +1,14 @@
+{
+ "id": "e01",
+ "code": "E01",
+ "title": "Negeri yang Tak Pernah Dijajah",
+ "fps": 30,
+ "totalSeconds": 381.5,
+ "sceneCount": 44,
+ "data": {
+  "scenes": "src/data/scenes.json",
+  "words": "src/data/words.json",
+  "vo": "public/vo.mp3",
+  "images": "gambar/"
+ }
+}
